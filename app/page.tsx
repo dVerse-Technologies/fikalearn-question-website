@@ -14,8 +14,8 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Generate custom CBSE Class 10 question papers instantly with our intelligent system. 
-              Automated scheduling, Google Sheets integration, and competency-based question selection.
+              Master your CBSE Class 10 exams with fresh practice papers every week! 
+              Build confidence, improve your scores, and achieve your dream career with comprehensive question practice that follows the latest CBSE pattern.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -49,11 +49,11 @@ export default function HomePage() {
             </div>
             <div>
               <div className="text-3xl font-bold text-purple-600">4</div>
-              <div className="text-gray-600">Competency Levels</div>
+              <div className="text-gray-600">Difficulty Levels</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-orange-600">24/7</div>
-              <div className="text-gray-600">Auto Generation</div>
+              <div className="text-gray-600">Always Available</div>
             </div>
           </div>
         </div>
@@ -64,10 +64,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Powerful Features for Educators
+              Why Students Choose FikaLearn
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Everything you need to create, manage, and distribute quality question papers
+              Everything you need to excel in your CBSE Class 10 examinations and secure your future
             </p>
           </div>
 
@@ -77,9 +77,9 @@ export default function HomePage() {
               <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-2xl">🤖</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">AI-Powered Selection</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Smart Question Mix</h3>
               <p className="text-gray-600">
-                Intelligent question selection based on competency levels, difficulty distribution, and CBSE guidelines.
+                Get perfectly balanced question papers that cover all difficulty levels and follow CBSE exam patterns.
               </p>
             </div>
 
@@ -88,9 +88,9 @@ export default function HomePage() {
               <div className="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-2xl">📊</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Google Sheets Sync</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Fresh Content Weekly</h3>
               <p className="text-gray-600">
-                Seamlessly sync with Google Sheets for question management. Real-time updates and collaboration support.
+                New questions added regularly to keep your practice sessions engaging and comprehensive.
               </p>
             </div>
 
@@ -99,9 +99,9 @@ export default function HomePage() {
               <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-2xl">⏰</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Automated Scheduling</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Weekly Practice Papers</h3>
               <p className="text-gray-600">
-                CRON-based weekly paper generation. Set it once and get fresh papers delivered automatically.
+                New practice papers published every week to keep you ahead in your exam preparation journey.
               </p>
             </div>
 
@@ -132,9 +132,9 @@ export default function HomePage() {
               <div className="h-12 w-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-2xl">⚙️</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Customizable Settings</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Personalized Practice</h3>
               <p className="text-gray-600">
-                Configure paper structure, marking schemes, and generation preferences to match your needs.
+                Customize your practice sessions to focus on your weak areas and strengthen your exam readiness.
               </p>
             </div>
           </div>
@@ -179,7 +179,7 @@ export default function HomePage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-            Join educators worldwide who trust FikaLearn for their question paper needs.
+            Join thousands of CBSE students who are boosting their confidence and achieving better scores with FikaLearn.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
