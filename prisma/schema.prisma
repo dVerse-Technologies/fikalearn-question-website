@@ -1,0 +1,148 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  fullName     String
+  phoneNumber  String    @unique
+  school       String
+  tuitionCentre String?
+  password     String
+  isPhoneVerified Boolean @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("users")
+}
+
+model Question {
+  id          String   @id @default(cuid())
+  question    String
+  section     String   // B, C, D, E
+  marks       Int      // 2, 3, 5, 4
+  competency  String   // Remembering, Applying, Creating, Evaluating, General
+  subject     String?
+  topic       String?
+  difficulty  String?
+  
+  // Multiple choice options
+  optionA     String?
+  optionB     String?
+  optionC     String?
+  optionD     String?
+  correctAnswer String?
+  explanation String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relation to question papers
+  paperQuestions PaperQuestion[]
+
+  @@map("questions")
+}
+
+model Paper {
+  id           String    @id @default(cuid())
+  title        String
+  description  String?
+  totalMarks   Int       @default(60)
+  isActive     Boolean   @default(false)
+  publishedAt  DateTime?
+  weekStart    DateTime?
+  weekEnd      DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  // Relations
+  paperQuestions PaperQuestion[]
+
+  @@map("papers")
+}
+
+model PaperQuestion {
+  id         String @id @default(cuid())
+  paperId    String
+  questionId String
+  order      Int    // Order of question in the paper
+  
+  // Relations
+  paper      Paper    @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([paperId, questionId])
+  @@map("paper_questions")
+}
+
+model WeeklySchedule {
+  id          String    @id @default(cuid())
+  weekStartDate DateTime @unique
+  status      String    // SCHEDULED, COMPLETED, FAILED
+  paperId     String?
+  errorMessage String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("weekly_schedules")
+}
+
+model CronLog {
+  id        String   @id @default(cuid())
+  level     String   // INFO, WARN, ERROR
+  message   String
+  data      String?  // JSON string for additional data
+  createdAt DateTime @default(now())
+
+  @@map("cron_logs")
+}
+
+model AppSettings {
+  id        String   @id @default(cuid())
+  
+  // Google Sheets Configuration
+  googleSheetId         String
+  googleSheetsApiKey    String?
+  lastSyncDate          DateTime?
+  autoSyncEnabled       Boolean @default(false)
+  syncIntervalHours     Int     @default(24)
+  
+  // Paper Generation Settings
+  defaultPaperDifficulty String  @default("Mixed")
+  questionsPerSection    String  // JSON: {sectionB, sectionC, sectionD, sectionE}
+  
+  // UI/UX Settings
+  defaultSubject        String  @default("All")
+  showAnswersInPreview  Boolean @default(false)
+  enablePrintMode       Boolean @default(true)
+  darkModeEnabled       Boolean @default(false)
+  
+  // Notification Settings
+  emailNotifications    Boolean @default(false)
+  weeklyPaperReminders  Boolean @default(true)
+  syncFailureAlerts     Boolean @default(true)
+  
+  // Advanced Settings
+  maxQuestionsPerTopic  Int     @default(2)
+  competencyDistribution String // JSON: {remembering, applying, creating, evaluating}
+  
+  // System Settings
+  appName      String  @default("FikaLearn Question Bank")
+  schoolName   String?
+  academicYear String  @default("2024-25")
+  timezone     String  @default("Asia/Kolkata")
+  
+  // Metadata
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("app_settings")
+} 

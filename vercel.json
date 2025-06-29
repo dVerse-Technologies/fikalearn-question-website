@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "name": "fikalearn-question-bank",
+  "alias": ["fikalearn-questions.vercel.app"],
+  "regions": ["bom1", "sin1"],
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@vercel/next"
+    }
+  ],
+  "functions": {
+    "app/api/**": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "DATABASE_URL": "@database-url",
+    "NEXT_PUBLIC_APP_URL": "@app-url",
+    "GOOGLE_SHEET_ID": "@google-sheet-id",
+    "ENABLE_CRON": "false",
+    "JWT_SECRET": "@jwt-secret"
+  },
+  "build": {
+    "env": {
+      "DATABASE_URL": "@database-url"
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=0, stale-while-revalidate"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    }
+  ]
+} 

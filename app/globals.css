@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .competency-tag {
+    @apply px-3 py-1 rounded-full text-sm font-medium text-white;
+  }
+  
+  .competency-remembering {
+    @apply bg-remembering;
+  }
+  
+  .competency-applying {
+    @apply bg-applying;
+  }
+  
+  .competency-creating {
+    @apply bg-creating;
+  }
+  
+  .competency-evaluating {
+    @apply bg-evaluating;
+  }
+  
+  .competency-general {
+    @apply bg-general;
+  }
+} 
