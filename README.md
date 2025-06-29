@@ -1,5 +1,5 @@
 # FikaLearn Question Website
-
+Admin password: murugan5
 A web application for displaying weekly mock exam papers for CBSE Class 10 students.
 
 ## 📁 Project Structure
