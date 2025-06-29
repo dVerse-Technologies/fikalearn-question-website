@@ -13,7 +13,7 @@ export default function Navigation() {
     { name: 'Home', href: '/', icon: '🏠' },
     { name: 'Papers', href: '/papers', icon: '📄' },
     { name: 'Generate', href: '/generate-paper', icon: '✨' },
-    { name: 'Settings', href: '/settings', icon: '⚙️' },
+    { name: 'Admin', href: '/admin', icon: '🔐' },
   ];
 
   const adminNavigation = [
@@ -95,11 +95,11 @@ export default function Navigation() {
                     </div>
                     
                     <Link
-                      href="/settings"
+                      href="/admin"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
-                      ⚙️ Settings
+                      🔐 Admin Panel
                     </Link>
                     
                     {/* Admin menu items */}
